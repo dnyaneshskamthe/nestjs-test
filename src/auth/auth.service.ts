@@ -18,7 +18,6 @@ export class AuthService {
 
   async login(email: string, password: string) {
     const user = await this.userModel.findOne({ email });
-    console.log('User:', user);
     if (user && (await user.validatePassword(password))) {
       const payload = { email: user.email, sub: user._id };
       return {

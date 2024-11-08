@@ -16,4 +16,6 @@ export class CreateCvDto {
   @IsArray()
   @IsOptional()
   experience?: string[];
+
+  userId?: string;
 }
