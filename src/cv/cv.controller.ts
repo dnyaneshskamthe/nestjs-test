@@ -17,9 +17,6 @@ import { CreateCvDto } from './dto/create-cv.dto';
 import { UpdateCvDto } from './dto/update-cv.dto';
 import { Request } from 'express';
 
-
-
-
 export interface RequestWithUser extends Request {
   user: {
     userId: string;
@@ -33,7 +30,7 @@ export class CvController {
   constructor(private readonly cvService: CvService) {}
 
   @Post()
-  @UsePipes(new ValidationPipe())  // Apply validation pipe to validate incoming DTO
+  @UsePipes(new ValidationPipe())
   async createCv(
     @Body() createCvDto: CreateCvDto,
     @Req() req: RequestWithUser,
